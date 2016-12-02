@@ -15,6 +15,7 @@
             <components>
                 <component>
                     <name>SOLR_SERVER</name>
+                    <timelineAppid>solr-timeline-app</timelineAppid>
                     <displayName>Solr</displayName>
                     <category>MASTER</category>
                     <cardinality>1+</cardinality>
@@ -65,6 +66,8 @@
                     <default>true</default>
                 </quickLinksConfiguration>
             </quickLinksConfigurations>
+
+            <metricsFileName>metrics.json</metricsFileName>
         </service>
     </services>
 </metainfo>

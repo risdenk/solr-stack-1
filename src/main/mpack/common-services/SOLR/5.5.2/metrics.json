@@ -1,0 +1,37 @@
+{
+  "SOLR_SERVER": {
+    "Component": [
+      {
+        "type": "ganglia",
+        "metrics": {
+          "default": {
+            "metrics/solr/cpu/usage": {
+              "metric": "solr.cpu.usage",
+              "pointInTime": true,
+              "temporal": true,
+              "amsHostMetric": true
+            },
+            "metrics/solr/index/size": {
+              "metric": "solr.index.size",
+              "pointInTime": true,
+              "temporal": true,
+              "amsHostMetric": true
+            },
+            "metrics/jvm/memHeapUsedM": {
+              "metric": "jvm.JvmMetrics.MemHeapUsedM",
+              "pointInTime": true,
+              "temporal": true,
+              "amsHostMetric": true
+            },
+            "metrics/jvm/memHeapMaxM": {
+              "metric": "jvm.JvmMetrics.MemHeapMaxM",
+              "pointInTime": true,
+              "temporal": true,
+              "amsHostMetric": true
+            }
+          }
+        }
+      }
+    ]
+  }
+} 
