@@ -8,6 +8,7 @@ def setup_solr_cloud():
     import params
 
     code, output = call(format('{zk_client_prefix} -cmd get {solr_cloud_zk_directory}{clusterstate_json}'),
+                        env={'JAVA_HOME': params.java64_home},
                         timeout=60
                         )
 
@@ -16,6 +17,7 @@ def setup_solr_cloud():
         return
 
     Execute(format('{zk_client_prefix} -cmd makepath {solr_cloud_zk_directory}'),
+            environment={'JAVA_HOME': params.java64_home},
             ignore_failures=True,
             user=params.solr_config_user
             )

@@ -58,7 +58,7 @@ cloud_scripts = format('{solr_config_dir}/server/scripts/cloud-scripts')
 map_solr_cloud = config['configurations']['solr-cloud']
 solr_cloud_mode = map_solr_cloud['solr_cloud_enable']
 solr_cloud_zk_directory = map_solr_cloud['solr_cloud_zk_directory']
-zk_client_prefix = format('export JAVA_HOME={java64_home}; {cloud_scripts}/zkcli.sh -zkhost {zookeeper_hosts}')
+zk_client_prefix = format('{cloud_scripts}/zkcli.sh -zkhost {zookeeper_hosts}')
 clusterprops_json = '/clusterprops.json'
 clusterstate_json = '/clusterstate.json'
 
@@ -82,7 +82,7 @@ hdfs_site = config['configurations']['hdfs-site']
 hdfs_user_keytab = config['configurations']['hadoop-env']['hdfs_user_keytab']
 default_fs = config['configurations']['core-site']['fs.defaultFS']
 dfs_type = default('/commandParams/dfs_type', '')
-security_enabled = security_enabled = config['configurations']['cluster-env']['security_enabled']
+security_enabled = config['configurations']['cluster-env']['security_enabled']
 kinit_path_local = get_kinit_path(default('/configurations/kerberos-env/executable_search_paths', None))
 hdfs_principal_name = config['configurations']['hadoop-env']['hdfs_principal_name']
 solr_hdfs_delete_write_lock_files = bool(map_solr_hdfs['solr_hdfs_delete_write_lock_files'])

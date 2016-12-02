@@ -7,6 +7,7 @@ def setup_solr_ssl_support():
     import params
 
     Execute(format('{zk_client_prefix}{solr_cloud_zk_directory} -cmd clusterprop -name urlScheme -val https'),
+            env={'JAVA_HOME': params.java64_home},
             ignore_failures=True,
             user=params.solr_config_user
             )
@@ -16,6 +17,7 @@ def remove_solr_ssl_support():
     import params
 
     code, output = call(format('{zk_client_prefix} -cmd get {solr_cloud_zk_directory}{clusterprops_json}'),
+                        env={'JAVA_HOME': params.java64_home},
                         timeout=60
                         )
 
@@ -23,6 +25,7 @@ def remove_solr_ssl_support():
         return
 
     Execute(format('{zk_client_prefix} -cmd clear {solr_cloud_zk_directory}{clusterprops_json}'),
+            environment={'JAVA_HOME': params.java64_home},
             ignore_failures=True,
             user=params.solr_config_user
             )
