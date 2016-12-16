@@ -29,46 +29,6 @@
         }
       },
       {
-        "name": "solr_index_size",
-        "label": "Solr Index Size",
-        "description": "This host-level alert is triggered if the Solr index size is over a limit.",
-        "interval": 1,
-        "scope": "ANY",
-        "source": {
-          "type": "AMS",
-          "uri": {
-            "http": "{{ams-site/timeline.metrics.service.webapp.address}}",
-            "https": "{{ams-site/timeline.metrics.service.webapp.address}}",
-            "https_property": "{{ams-site/timeline.metrics.service.http.policy}}",
-            "https_property_value": "HTTPS_ONLY",
-            "connection_timeout": 5.0
-          },
-          "reporting": {
-            "ok": {
-              "text": "Solr index size is {0:.1f}GB"
-            },
-            "warning": {
-              "text": "Solr index size is {0:.1f}GB",
-              "value": 50
-            },
-            "critical": {
-              "text": "Solr index size is {0:.1f}GB",
-              "value": 100
-            },
-            "units" : "GB"
-          },
-          "ams": {
-            "app_id": "solr-timeline-app",
-            "interval": 1,
-            "metric_list": [
-              "solr.index.size"
-            ],
-            "value": "{0}",
-            "compute": "mean"
-          }
-        }
-      },
-      {
         "name": "solr_cpu_usage",
         "label": "Solr CPU Utilization",
         "description": "This host-level alert is triggered if CPU utilization of the Solr exceeds certain warning and critical thresholds. It checks the Solr JMX Servlet for the SystemCPULoad property. The threshold values are in percent.",
@@ -81,7 +41,7 @@
             "https": "{{ams-site/timeline.metrics.service.webapp.address}}",
             "https_property": "{{ams-site/timeline.metrics.service.http.policy}}",
             "https_property_value": "HTTPS_ONLY",
-            "connection_timeout": 5.0
+            "connection_timeout": 15.0
           },
           "reporting": {
             "ok": {
@@ -89,11 +49,11 @@
             },
             "warning": {
               "text": "CPU load {0:.1%}",
-              "value": 200
+              "value": 400
             },
             "critical": {
               "text": "CPU load {0:.1%}",
-              "value": 250
+              "value": 450
             },
             "units" : "%"
           },
@@ -101,7 +61,7 @@
             "app_id": "solr-timeline-app",
             "interval": 1,
             "metric_list": [
-              "solr.cpu.usage"
+              "olr.admin.info.system.processCpuLoad"
             ],
             "value": "{0}",
             "compute": "mean"
@@ -121,7 +81,7 @@
             "https": "{{ams-site/timeline.metrics.service.webapp.address}}",
             "https_property": "{{ams-site/timeline.metrics.service.http.policy}}",
             "https_property_value": "HTTPS_ONLY",
-            "connection_timeout": 5.0
+            "connection_timeout": 15.0
           },
           "reporting": {
             "ok": {
@@ -129,11 +89,11 @@
             },
             "warning": {
               "text": "Memory usage is {0:.1%}",
-              "value": 200
+              "value": 400
             },
             "critical": {
               "text": "Memory usage is {0:.1%}",
-              "value": 250
+              "value": 450
             },
             "units" : "%"
           },
@@ -141,8 +101,8 @@
             "app_id": "solr-timeline-app",
             "interval": 1,
             "metric_list": [
-              "jvm.JvmMetrics.MemHeapUsedM",
-              "jvm.JvmMetrics.MemHeapMaxM"
+              "solr.admin.info.jvm.memory.used",
+              "solr.admin.info.jvm.memory.max"
             ],
             "value": "{0} / {1}",
             "compute": "mean"
