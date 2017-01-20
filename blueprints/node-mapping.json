@@ -1,0 +1,11 @@
+{
+  "blueprint" : "solr",
+  "default_password" : "password",
+  "host_groups" :[
+    {
+      "name" : "host_group_1",
+      "host_count" : "1",
+      "host_predicate" : "Hosts/cpu_count>0"
+    }
+  ]
+}
