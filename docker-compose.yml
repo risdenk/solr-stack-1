@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ambari:
+    build: docker/ambari
+    hostname: ambari
+    ports:
+      - '8080:8080'
+    volumes:
+      - $PWD/build/solr-service-mpack-2.2.7.tar.gz:/solr-service-mpack.tar.gz:ro 
+
+  solr1:
+    build: docker/solr
+    hostname: solr1
+    depends_on:
+      - ambari
+    ports:
+      - '8983:8983'
+
