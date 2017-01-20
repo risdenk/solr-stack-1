@@ -40,7 +40,7 @@
 
             <requiredServices>
                 <service>ZOOKEEPER</service>
-                <service>HDFS</service>
+                <!--<service>HDFS</service>-->
             </requiredServices>
 
             <commandScript>
