@@ -2,7 +2,16 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 
 <configuration>
-    <property>
+   <property>
+        <name>solr_config_url</name>
+        <value>http://archive.apache.org/dist/lucene/solr/6.3.0/solr-6.3.0.tgz</value>
+        <description>
+            The tgz url for a Solr release
+        </description>
+        <display-name>Solr tgz download url</display-name>
+   </property>
+
+   <property>
         <name>solr_config_port</name>
         <value>8983</value>
         <description>Solr TCP port</description>
